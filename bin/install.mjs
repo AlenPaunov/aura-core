@@ -11,6 +11,8 @@ const __dirname = path.dirname(__filename);
 const CWD = process.cwd();
 const SRC = path.join(__dirname, "..", "dist", ".aura-core");
 const DEST = path.join(CWD, ".aura-core");
+const COMMANDS_SRC = path.join(SRC, "commands");
+const COMMANDS_DEST = path.join(CWD, ".claude", "commands");
 const OPCODE = path.join(CWD, "opencode.jsonc");
 const OPJSON = path.join(CWD, "opencode.json");
 
@@ -19,7 +21,12 @@ async function main() {
   await fse.copy(SRC, DEST, { overwrite: true, errorOnExist: false });
   console.log("✔ Copied .aura-core into your project");
 
-  // 2) Merge into opencode.jsonc / opencode.json
+  // 2) Copy Claude commands to .claude/commands/
+  await fse.ensureDir(COMMANDS_DEST);
+  await fse.copy(COMMANDS_SRC, COMMANDS_DEST, { overwrite: true, errorOnExist: false });
+  console.log("✔ Installed Claude Code commands (/orchestrator, /designer, /content, /slides, /assessment, /curve, /qa)");
+
+  // 3) Merge into opencode.jsonc / opencode.json
   const ensureInstruction = (obj) => {
     obj.instructions = obj.instructions || [];
     if (!obj.instructions.includes(".aura-core/core-config.yaml")) {

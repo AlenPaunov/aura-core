@@ -43,7 +43,7 @@ npx aura-edu-core
 npm install -g aura-edu-core
 ```
 
-This copies the `.aura-core/` framework into your project and configures your IDE settings.
+This copies the `.aura-core/` framework and installs Claude Code slash commands.
 
 ## The 7 Specialized Agents
 
@@ -116,24 +116,28 @@ Every lesson passes through a QA gate before delivery:
 | **FAIL** | Must address issues before delivery |
 | **WAIVED** | Exception granted with justification |
 
-## Quick Commands
+## Claude Code Slash Commands
 
-```bash
-# Orchestrator
-@ed-orchestrator *shard-course
+After installation, use these commands in Claude Code:
 
-# Content Development
-@content *develop-lesson {lesson_id}
+| Command | Agent | Description |
+|---------|-------|-------------|
+| `/orchestrator` | Educational Orchestrator | Start workflows, shard courses |
+| `/designer` | Educational Designer | Design courses, create outcome maps |
+| `/content` | Content Developer | Draft lessons, examples, exercises |
+| `/slides` | Presentation Creator | Create slide decks and visuals |
+| `/assessment` | Assessment Architect | Design tests and rubrics |
+| `/curve` | Learning Curve Specialist | Analyze difficulty progression |
+| `/qa` | QA Educator | Quality review, gate decisions |
 
-# Presentations
-@slides *slides {lesson_id}
+### Example Usage
 
-# Assessments
-@assess *test-design {lesson_id}
-
-# Quality Assurance
-@qa *review {lesson_id}
-@qa *gate {lesson_id}
+```
+/orchestrator start the python-basics course workflow
+/content develop lesson L01 on variables
+/slides create presentation for L01
+/assessment design quiz for L01
+/qa review L01 and issue gate decision
 ```
 
 ## Key Principles

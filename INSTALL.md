@@ -26,19 +26,31 @@ aura-edu-core
 
 ```
 your-project/
-├── .aura-core/       # AURA framework (agents, templates, workflows)
-└── opencode.jsonc    # IDE configuration
+├── .aura-core/           # AURA framework (agents, templates, workflows)
+├── .claude/commands/     # Claude Code slash commands
+└── opencode.jsonc        # IDE configuration
 ```
 
 ## Start Using
 
-After installation, use these commands with your AI assistant:
+After installation, use these slash commands in Claude Code:
 
 ```
-@ed-orchestrator *shard-course      # Start a new course
-@content *develop-lesson L01        # Write a lesson
-@slides *slides L01                 # Create slides
-@qa *review L01                     # Quality check
+/orchestrator    # Coordinate workflows, shard courses
+/designer        # Design courses, create outcome maps
+/content         # Draft lessons and exercises
+/slides          # Create presentations
+/assessment      # Design tests and rubrics
+/curve           # Analyze learning progression
+/qa              # Quality review and gate decisions
+```
+
+### Example
+
+```
+/orchestrator start python-basics course
+/content develop lesson L01
+/qa review L01
 ```
 
 ## Requirements
