@@ -1,0 +1,26 @@
+template:
+  id: assessment-template
+  name: Assessment Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/assessments/{{course_slug}}/{{lesson_id}}-assessment.md
+    title: 'Assessment — {{lesson_title}}'
+
+sections:
+  - id: outcomes
+    title: Outcomes Covered
+    type: bullet-list
+  - id: items
+    title: Items / Tasks
+    repeatable: true
+    sections:
+      - id: item
+        title: Item {{item_number}}
+        sections:
+          - id: prompt
+            title: Prompt
+          - id: answer-key
+            title: Answer Key / Model Solution
+          - id: bloom-level
+            title: Bloom Level

@@ -1,0 +1,26 @@
+template:
+  id: lesson-template
+  name: Lesson Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/lessons/{{course_slug}}/{{lesson_id}}.md
+    title: '{{lesson_title}}'
+
+sections:
+  - id: objective
+    title: Objective
+  - id: intro
+    title: Activate Prior Knowledge
+  - id: explanation
+    title: Explanation
+  - id: worked-example
+    title: Worked Example
+  - id: guided-exercise
+    title: Guided Exercise
+  - id: independent-practice
+    title: Independent Practice
+  - id: summary
+    title: Summary
+  - id: formative-quiz
+    title: Formative Quiz

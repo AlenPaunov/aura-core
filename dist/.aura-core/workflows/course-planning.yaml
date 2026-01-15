@@ -1,0 +1,24 @@
+workflow:
+  id: course-planning
+  title: Course Planning Workflow
+  stages:
+    - id: research
+      agent: ed-designer
+      expected_outputs:
+        - docs/courses/{course_slug}.md
+    - id: outcomes-map
+      agent: ed-designer
+      expected_outputs:
+        - docs/outcomes/{course_slug}-map.md
+    - id: curve-analysis
+      agent: learning-curve-specialist
+      expected_outputs:
+        - docs/assessments/{course_slug}-curve-assessment.md
+    - id: assessment-strategy
+      agent: assessment-architect
+      expected_outputs:
+        - docs/assessments/{course_slug}/strategy.md
+    - id: qa-gate
+      agent: qa-educator
+      expected_outputs:
+        - docs/qa/gates/{course_slug}-planning.yml

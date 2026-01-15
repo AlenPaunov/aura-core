@@ -1,0 +1,12 @@
+# Pedagogical Preferences (Fill for Your Academy)
+
+- **Tone & Voice**: (e.g., friendly, concise, professional)
+- **Slide Style**: (e.g., minimal text, high-contrast, max 1 idea/slide)
+- **Examples Domain**: (e.g., business apps, e‑commerce, cybersecurity)
+- **Coding Conventions in Lessons**: (e.g., JS/TS, C#, Java; naming, formatting)
+- **Assessment Mix**: (e.g., 60% formative, 40% summative)
+- **Feedback SLA**: (e.g., 48h on formative tasks)
+- **Accessibility Baseline**: (e.g., WCAG AA equivalent for slides & docs)
+- **Plagiarism Policy**: (describe detection & remediation)
+- **House Rubric Levels**: (e.g., 4 levels: Excellent/Good/Fair/Poor)
+- **Publishing Format**: (PowerPoint Presentations, PDF slides, MD scripts, LMS import format)

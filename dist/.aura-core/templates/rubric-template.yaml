@@ -1,0 +1,24 @@
+template:
+  id: rubric-template
+  name: Rubric Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/rubrics/{{course_slug}}/{{lesson_id}}-rubric.md
+    title: 'Rubric — {{lesson_title}}'
+
+sections:
+  - id: criteria
+    title: Criteria
+    repeatable: true
+    sections:
+      - id: criterion
+        title: Criterion {{criterion_number}}
+        sections:
+          - id: descriptor
+            title: Descriptor
+          - id: levels
+            title: Levels
+            type: table
+            instruction: |
+              Columns: Level, Description, Points

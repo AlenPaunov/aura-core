@@ -1,0 +1,105 @@
+# <!-- Powered by AURA core -->
+workflow:
+  id: course-execution
+  title: Course Execution Workflow
+  description: >-
+    Agent workflow for developing courses and educational units from concept to delivery.
+    Supports both comprehensive builds for complex programs and rapid prototyping for short formats.
+  type: execution
+  course_types:
+    - full-course
+    - workshop
+    - webinar
+    - microlearning
+
+  stages:
+    - id: shard-course
+      agent: ed-orchestrator
+      action: shard_course
+      creates:
+        - docs/lessons/{course_slug}/index.md
+      notes: >
+        Initialize folder structure and lesson stubs from the course doc.
+        Link each lesson to outcomes and assessment plans.
+
+    - id: draft-lessons
+      agent: content-developer
+      action: develop_lesson
+      repeats: for_each_lesson
+      creates:
+        - docs/lessons/{course_slug}/{lesson_id}.md
+      notes: >
+        Produce full instructional script (intro → explanation → worked example → guided exercise → practice → summary → formative quiz).
+
+    - id: create-slides
+      agent: presentation-creator
+      action: build_slides
+      repeats: for_each_lesson
+      creates:
+        - docs/slides/{course_slug}/{lesson_id}.md
+      notes: >
+        Build slides aligned to lesson script; apply accessibility and presentation checklists.
+
+    - id: build-assessments
+      agent: assessment-architect
+      action: design_assessment
+      repeats: for_each_lesson
+      creates:
+        - docs/assessments/{course_slug}/{lesson_id}-assessment.md
+        - docs/rubrics/{course_slug}/{lesson_id}-rubric.md
+      notes: >
+        Align items/tasks and rubrics to outcomes and Bloom level; define feedback and retake policy.
+
+    - id: qa-review
+      agent: qa-educator
+      action: review_artifacts
+      repeats: for_each_lesson
+      updates:
+        - docs/qa/reviews/{course_slug}-{lesson_id}-qa.md
+        - docs/qa/gates/{course_slug}-{lesson_id}.yml
+      notes: >
+        Apply Educational Design, Accessibility, and Assessment checklists.
+        Issue gate decision: PASS / CONCERNS / FAIL / WAIVED with remediation.
+
+  flow_diagram: |
+    ```mermaid
+    graph TD
+      A[Start: Course Execution] --> B[ed-orchestrator: shard course]
+      B --> C[content-developer: draft lesson scripts]
+      C --> D[presentation-creator: create slides]
+      D --> E[assessment-architect: build assessments + rubrics]
+      E --> F[qa-educator: QA review & gate]
+      F --> G{More lessons?}
+      G -->|Yes| C
+      G -->|No| H[Course Delivery Ready]
+      style H fill:#90EE90
+      style C fill:#ADD8E6
+      style D fill:#ADD8E6
+      style E fill:#F0E68C
+      style F fill:#F0E68C
+    ```
+
+  decision_guidance:
+    when_to_use:
+      - Building a new course or major module from a validated plan
+      - Multiple specialists collaborate (content, slides, assessments, QA)
+      - Need documented alignment (outcomes → activities → assessments)
+      - Accessibility and consistency standards must be enforced
+      - Delivery formats include full-course, workshop, webinar, or microlearning
+
+  handoff_prompts:
+    orchestrator_to_content: >
+      Shar      Please draft lesson scripts per template.
+ding complete. Lesson stubs created in docs/lessons/{course_slug}/.
+    content_to_slides: >
+      Lesson script ready at docs/lessons/{course_slug}/{lesson_id}.md.
+      Build slides aligned to objectives and examples.
+    slides_to_assessment: >
+      Slides created at docs/slides/{course_slug}/{lesson_id}.md.
+      Design aligned assessments and rubrics.
+    assessment_to_qa: >
+      Assessment and rubric ready at docs/assessments/ and docs/rubrics/.
+      Please run QA review and issue gate decision.
+    qa_to_orchestrator: >
+      QA decision recorded in docs/qa/gates/{course_slug}-{lesson_id}.yml.
+      If CONCERNS/FAIL, route back to the responsible agent for fixes; otherwise mark lesson as Ready for Delivery.

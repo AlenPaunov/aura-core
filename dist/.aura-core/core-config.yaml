@@ -1,0 +1,34 @@
+# AURA Core Configuration
+markdownExploder: true
+aura:
+  defaultAgents:
+    orchestrator: ed-orchestrator
+    content: content-developer
+    slides: presentation-creator
+    assessment: assessment-architect
+    qa: qa-educator
+
+  # Files to **always** keep in context for lesson work
+  lessonLoadAlwaysFiles:
+    - docs/courses/**.md
+    - docs/outcomes/**.md
+    - .aura-core/data/pedagogical-preferences.md
+    - .aura-core/data/accessibility-standards.md
+    - .aura-core/data/bloom-taxonomy.md
+    - .aura-core/data/assessment-levels-framework.md
+
+  devLoadAlwaysFiles:
+    - .aura-core/data/pedagogical-preferences.md
+    - .aura-core/data/accessibility-standards.md
+
+  outputPaths:
+    lessons: docs/lessons/{course_slug}/{lesson_id}.md
+    slides: docs/slides/{course_slug}/{lesson_id}.md
+    assessments: docs/assessments/{course_slug}/{lesson_id}-assessment.md
+    rubrics: docs/rubrics/{course_slug}/{lesson_id}-rubric.md
+    gates: docs/qa/gates/{course_slug}-{lesson_id}.yml
+
+  gatePolicy:
+    statuses: [PASS, CONCERNS, FAIL, WAIVED]
+    requiredForDelivery: true
+    owner: qa-educator

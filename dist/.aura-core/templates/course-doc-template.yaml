@@ -1,0 +1,57 @@
+template:
+  id: course-template
+  name: Course Document Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/courses/{{course_slug}}.md
+    title: '{{course_title}}'
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: overview
+    title: Course Overview
+    instruction: |
+      Describe target audience, duration, format, prerequisites, and constraints.
+  - id: learning-outcomes
+    title: Learning Outcomes
+    type: numbered-list
+    instruction: |
+      Use Bloom verbs (analyze, design, implement...). Each outcome must be measurable.
+  - id: modules
+    title: Modules
+    repeatable: true
+    sections:
+      - id: module-title
+        title: Module {{module_number}}: {{module_title}}
+      - id: module-outcomes
+        title: Outcomes Covered
+        type: bullet-list
+      - id: lessons
+        title: Lessons
+        repeatable: true
+        sections:
+          - id: lesson
+            title: Lesson {{lesson_number}}: {{lesson_title}}
+            sections:
+              - id: objective
+                title: Objective
+              - id: summary
+                title: Summary
+              - id: activities
+                title: Activities
+                type: bullet-list
+              - id: assessments
+                title: Assessments
+                type: bullet-list
+  - id: resources
+    title: Resources
+    type: bullet-list
+  - id: schedule
+    title: Schedule
+    type: table
+    instruction: |
+      Columns: Week, Module, Lesson, Focus, Estimated Time

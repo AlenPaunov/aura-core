@@ -1,0 +1,28 @@
+manifest:
+  id: aura-core
+  name: AURA Core (Agentic Unified Reinforcement for Academics)
+  version: 1.0.0
+  description: >
+    Educational agent core pack: roles, tasks, templates, checklists, and data
+    for course/lesson execution with QA gates and accessibility by default.
+
+  registers:
+    data:
+      - { file: .aura-core/data/aura-kb.md }
+      - { file: .aura-core/data/elicitation-methods.md }
+      - { file: .aura-core/data/brainstorming-techniques.md }
+      - { file: .aura-core/data/pedagogical-preferences.md }
+      - { file: .aura-core/data/assessment-levels-framework.md }
+      - { file: .aura-core/data/assessment-priorities-matrix.md }
+      - { file: .aura-core/data/bloom-taxonomy.md }
+      - { file: .aura-core/data/instructional-patterns.md }
+      - { file: .aura-core/data/accessibility-standards.md }
+      - { file: .aura-core/data/rubric-templates.md }
+      - { file: .aura-core/data/course-types.md }
+      - { file: .aura-core/data/learning-metrics.md }
+      - { file: .aura-core/data/user-guide.md }
+      - { file: .aura-core/data/enhanced-ide-development-workflow.md }
+      - { file: .aura-core/data/working-in-the-brownfield.md }
+
+  instructions:
+    - { file: .aura-core/core-config.yaml }

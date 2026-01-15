@@ -1,0 +1,33 @@
+{
+  "name": "aura-core",
+  "version": "1.0.0",
+  "description": "AURA Core (Agentic Unified Reinforcement for Academics) - Multi-agent AI framework for educational content development",
+  "bin": {
+    "aura-core": "bin/install.mjs"
+  },
+  "type": "module",
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "keywords": [
+    "ai",
+    "agents",
+    "education",
+    "curriculum",
+    "learning",
+    "instructional-design",
+    "multi-agent",
+    "pedagogy"
+  ],
+  "author": "Alen Paunov",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alenpaunov/aura-core.git"
+  },
+  "homepage": "https://github.com/alenpaunov/aura-core#readme",
+  "dependencies": {
+    "fs-extra": "^11.2.0"
+  }
+}

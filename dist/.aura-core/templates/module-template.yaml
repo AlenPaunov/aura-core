@@ -1,0 +1,21 @@
+template:
+  id: module-template
+  name: Module Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/modules/{{course_slug}}/module-{{module_number}}.md
+    title: 'Module {{module_number}} — {{module_title}}'
+
+sections:
+  - id: overview
+    title: Overview
+  - id: outcomes
+    title: Outcomes
+    type: bullet-list
+  - id: lesson-list
+    title: Lessons
+    type: bullet-list
+  - id: assessment-plan
+    title: Assessment Plan
+    type: bullet-list
