@@ -36,11 +36,11 @@ AURA provides an orchestrated multi-agent system where **7 specialized AI agents
 ## Installation
 
 ```bash
-# Install globally
-npm install -g aura-core
+# Run directly in your project
+npx aura-edu-core
 
-# Or run directly in your project
-npx aura-core
+# Or install globally
+npm install -g aura-edu-core
 ```
 
 This copies the `.aura-core/` framework into your project and configures your IDE settings.

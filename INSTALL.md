@@ -4,7 +4,7 @@
 
 ```bash
 cd your-project
-npx aura-core
+npx aura-edu-core
 ```
 
 Done! Start using AURA agents.
@@ -12,14 +12,14 @@ Done! Start using AURA agents.
 ## Option 2: Global Install
 
 ```bash
-npm install -g aura-core
+npm install -g aura-edu-core
 ```
 
 Then in any project:
 
 ```bash
 cd your-project
-aura-core
+aura-edu-core
 ```
 
 ## What Gets Installed

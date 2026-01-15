@@ -1,9 +1,9 @@
 {
-  "name": "aura-core",
-  "version": "1.0.0",
+  "name": "aura-edu-core",
+  "version": "1.0.1",
   "description": "AURA Core (Agentic Unified Reinforcement for Academics) - Multi-agent AI framework for educational content development",
   "bin": {
-    "aura-core": "bin/install.mjs"
+    "aura-edu-core": "bin/install.mjs"
   },
   "type": "module",
   "files": [
